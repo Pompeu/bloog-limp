@@ -10,7 +10,7 @@ var express = require('express'),
 
 //'mongodb://localhost/pompeuapi'
 //mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi
-mongoose.connect('mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi', function(err){
+mongoose.connect('1mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi', function(err){
     if(!err)
         console.log("on web");
     else
@@ -41,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 posts = require('./routes/posts')(app);
 app.use('/', routes);
+app.use('/head',routes);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

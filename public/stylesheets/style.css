@@ -10,3 +10,17 @@ body {
 a {
   color: #00B7FF;
 }
+
+.head{
+	float: right;
+	color: #000;
+  	background-color: #5bc0de;
+  	border-color: #46b8da;
+}
+.head:hover{
+  color: #000;
+  background-color: #31b0d5;
+  border-color: #269abc;
+}
+
+
