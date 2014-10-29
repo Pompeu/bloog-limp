@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+ div(ng-controller="AppCtrl")
+  table(class="table table-condensed table-responsive table-hover table-bordered")
+   thead
+    tr
+     th 
+      a(href="" ng-click="") Titulo
+     th
+      a(href="" ng-click="") Dados
+     th
+      a(href="" ng-click="") Data
+     th 
+      a(href="" ng-click="") email
+     th 
+   tbody
+    tr(ng-repeat="post in posts")
+     td{{post.titulo}}   
+     td{{post.dados}}
+     td{{post.data}}
+     td{{post.email}}
+     td 
+      a( href="" class="btn-primary" ng-click="addPost(post)") add
+      a( href="" class="btn-danger" ng-click="removePost(post)") remove
+      a( href="" class="btn-warning" ng-click="editarPost(post)") editar
+      a( href="" class="btn-info" ng-click="lerPost(post)") ler
+ div(clss="img-responsive")
+  img(src="/images/criancaOlhando.jpeg" style="width : 200px")

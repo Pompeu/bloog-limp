@@ -1,0 +1,6 @@
+{
+	"name": "api-rest-Pompeu",
+	"description": " api rest for teste with nodeJs and Mongo DB",
+	"website": "https://github.com/Pompeu/ApiRestNodeJS",
+	"keywords": ["node"]
+}
