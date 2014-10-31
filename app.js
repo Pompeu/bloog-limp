@@ -10,12 +10,13 @@ var express = require('express'),
 
 //'mongodb://localhost/pompeuapi'
 //mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi
-mongoose.connect('mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi', function(err){
+
+mongoose.connect('mongodb://localhost/pompeuapi', function(err){
     if(!err)
-        console.log("on web");
+        console.log("on local");
     else
-        mongoose.connect('mongodb://localhost/pompeuapi', function(err){
-            console.log("on local");
+        mongoose.connect('mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi', function(err){
+            console.log("on web");
         });
 });
 

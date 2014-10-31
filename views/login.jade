@@ -1,0 +1,14 @@
+extends layout
+
+block content
+ .login
+  .container-fluit
+   form(class="form-signin" role="form")
+    h2(class="form-signin-heading") Sign IN
+    input(class="form-control" placeholder="Email address" required="" autofocus="" type="email")
+    input(class="form-control" placeholder="Password" required="" type="password")
+    div(class="checkbox")
+     label
+      input(value="remember-me" type="checkbox")
+      span Lembrar
+    button(class="btn btn-lg btn-primary btn-block" type="submit") Logar
