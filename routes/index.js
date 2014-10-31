@@ -11,4 +11,8 @@ router.get('/head', function(req, res){
 router.get('/', function(req, res){
 	res.render('login', {title : 'Limp Bloog Login'});
 });
+
+router.get('/headCadastro', function(req, res){
+	res.render('headCadastro');
+});
 module.exports = router;
