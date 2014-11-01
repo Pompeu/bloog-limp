@@ -15,4 +15,9 @@ router.get('/', function(req, res){
 router.get('/headCadastro', function(req, res){
 	res.render('headCadastro');
 });
+
+router.get('/postagens' , function(req,res){
+	res.render('postagens');
+});
+
 module.exports = router;
