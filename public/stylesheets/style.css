@@ -19,15 +19,12 @@ textarea{
   max-height:60px;
 }
 
-#busca{
-  width: 50%;
+.search{
+  margin: 13px;
 }
-.head{
-	width: 350px;
-  height: 50px;
-  float: right;
+.header{
+  width: 900px;
 }
-
 .login{
   width: 300px;
   height: 300px;
@@ -47,7 +44,7 @@ textarea{
 }
 
 .post{
-  width: 800px;
+  width: 900px;
   height: 550px;
   margin: 0px auto;
   background-color: red;
