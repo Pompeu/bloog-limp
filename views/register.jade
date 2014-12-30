@@ -1,0 +1,19 @@
+block content
+	.cadastrar
+		.container-fluit
+			if error
+				.alert-danger
+					p #{error}	
+		form(action='/register' class="form-signin" role="form" method="post")
+			h2(class="form-signin-heading") Cadastrar
+			input(type="hidden", name="_csrf", value="#{csrfToken}")
+			label First Name
+			input(class="form-control" ,placeholder="first name" ,required="", autofocus="",type="text", name='name')
+			label last Name
+			input(class="form-control" ,placeholder="last name" ,required="" , type="text", name='sname')
+			label Email Name
+			input(class="form-control" ,placeholder="Email address", required="" , type="email", name='email')
+			label Password Name
+			input(class="form-control" , placeholder="Password" ,required="" ,type="password",name='password')
+			button(class="btn btn-lg btn-primary btn-block" type="submit") cadastrar
+		<a href="/"> Voltar </a>

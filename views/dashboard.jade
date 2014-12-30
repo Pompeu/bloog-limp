@@ -1,0 +1,14 @@
+extends layout
+block vars
+	- var title = 'DashBoard'
+
+block content
+	include head
+	include footer
+	.login
+		if user
+			h3 Koe #{user.name} bem vindo
+			p Name : #{user.name}
+			p Sobre Nome : #{user.sname}
+			p Name Email : #{user.email}
+			P <a href='/modificarsenha'> Modificar Senha </a>

@@ -1,0 +1,10 @@
+block content
+	div(class="post container form-group ")
+		div(class="post-centro" , dir-paginate="post in posts | filter:searchPost |  itemsPerPage: 2")
+			div(class="post-centro-texto-titulo")
+				label(for="comment" class="control-label" ) {{post.titulo}}
+			div(class="post-centro-resumo") {{post.tag}}
+			div(class="post-centro-texto-titulo")
+				<a href="#post-datails"> ler mais </a>
+		div(class="fix")
+			<dir-pagination-controls></dir-pagination-controls>

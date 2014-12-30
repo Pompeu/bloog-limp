@@ -1,0 +1,18 @@
+block content
+	.container
+		if error
+			.alert-danger
+				p #{error}
+		h1 #{title}
+		form(role="form" , method="post", action="/api/post/")
+			input(type="hidden", name="_csrf", value="#{csrfToken}")
+			div(class="form-group")
+				label(for="titulo") Titulo
+				input(type="text" , placeholder="Titulo" , name="titulo", id="titulo")
+			div(class="form-group")
+				label(for="body") Texto	
+				textarea(placeholder="Testo do post", name="body", id="body" , cols="30", rows="10" ,maxlength="10000")
+			div(class="form-group")
+				label(for='tag') Tags
+				input(type="text" , placeholder="tags" name='tag', id='tag')
+				button(class='btn btn-success') Salvar

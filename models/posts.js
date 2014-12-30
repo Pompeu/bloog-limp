@@ -1,12 +1,21 @@
-var mongoose    = require("mongoose"),
-   	Schema      = mongoose.Schema;
+// file: models/posts.js - created at 2014-12-25, 09:02
+function postsHandler() {
 
-//Criando o model;
-var PostsSchema = new Schema({
-	titulo: {type : String, required:true, trin:true},
-    dados:  {type : String, required:true, trim:true},
-    email:  {type : String, required:true, trim:true},
-    data :  {type : Date, default : Date.now} 
-});
+  var mongoose = require('mongoose');
+  var Schema = mongoose.Schema;
+  var ObjectId = Schema.ObjectId;
+  var schema = null;
+  var timestemp = require('../plugins/timestemp');
+  
+  schema = new Schema({
+    id: ObjectId,
+    titulo: {type : String, required:true, trin:true ,unique: true},
+    body:  {type : String, required:true, trim:true},
+    tag:  {type : String, required:true, trim:true},   
+  });
 
-module.exports =  mongoose.model('Posts', PostsSchema);
+  schema.plugin(timestemp);
+
+  return restful.model('Posts', schema);
+}
+module.exports = exports = postsHandler();

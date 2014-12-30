@@ -1,18 +1,16 @@
 block content
- nav(class="navbar navbar-fixed-top" role="navigation")
-  div(class="container-fluid header navbar-inverse")
-   div(class="navbar-header ")
-    a(class="navbar-brand" href="#")
-     img(alt="Home" src="...")
-   div(class="navbar-header")
-    a(class="navbar-brand" href="#")
-     img(alt="Postagens" src="...")
-   div(class="navbar-header")
-    a(class="navbar-brand" href="#")
-     img(alt="Trabalhos" src="...")
-   div(class="navbar-header")
-    a(class="navbar-brand" href="#")
-     img(alt="Contato" src="...")
-   div(class="search")
-    form(class="navbar-search pull-right")
-     input(type="text" class="search-query" placeholder="Busca")
+  nav(class="navbar navbar-fixed-top",role="navigation")
+    div(class="container-fluid header navbar-inverse")
+      div(class="navbar-header")
+        a(class="navbar-brand", href="#lerpost") Ler Posts
+      div(class="navbar-header")
+        a(class="navbar-brand" ,href="#postar") Postar
+      div(class="navbar-header")
+        a(class="navbar-brand" ,href="#contato") Contato
+      div(class="navbar-header")
+        a(class="navbar-brand" ,href="#login") Login
+      div(class="navbar-header")
+        a(class="navbar-brand" ,href="/logout") Logout
+      div(class="search navbar-search pull-right")
+        input(type="text" class="search-query" ,placeholder="Buscar Posts", ng-model="searchPost")
+      
