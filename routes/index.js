@@ -11,7 +11,7 @@ router.get('/register',function(req, res) {
 	res.render('register.jade',{ csrfToken :  req.csrfToken() });
 });
 
-router.post('/register',function(req, res) {
+router.post('/register',middlewares.authrequired,function(req, res) {
 	var hash = bcrypt.hashSync(req.body.password , bcrypt.genSaltSync(10));
 	var user = new models.Users({
 		name : req.body.name,
@@ -28,7 +28,7 @@ router.post('/register',function(req, res) {
 			}
 			res.render('register.jade',{error :error});
 		}else{
-			res.redirect('/dashboard');
+			res.redirect('/#postar');
 		}
 	});
 });

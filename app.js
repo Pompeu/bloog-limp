@@ -18,13 +18,20 @@ function connectionHandler(err) {
     debug( err || 'on');
 };
 
-mongoose
-    .connect('localhost' ||
-    'mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi' ,
-    'pompeuapi')
-    .connection
-    .on('connected', connectionHandler);
 
+var local = 'mongodb://localhost/pompeuapi';
+var mongolab = 'mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi';
+
+mongoose
+    .connect(local)
+    .connection
+    .on('connected', connectionHandler)
+    .on('error',function() {
+        mongoose
+        .connect(mongolab)
+        .connection
+        .on('connected', connectionHandler)
+    });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
