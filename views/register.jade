@@ -4,16 +4,23 @@ block content
 			if error
 				.alert-danger
 					p #{error}	
-		form(action='/register' class="form-signin" role="form" method="post")
-			h2(class="form-signin-heading") Cadastrar
+		form(action='/register', class="form-signin" ,role="form" ,method="post")
+			h3(class="form-signin-heading") Cadastrar
 			input(type="hidden", name="_csrf", value="#{csrfToken}")
-			label First Name
-			input(class="form-control" ,placeholder="first name" ,required="", autofocus="",type="text", name='name')
-			label last Name
-			input(class="form-control" ,placeholder="last name" ,required="" , type="text", name='sname')
-			label Email Name
-			input(class="form-control" ,placeholder="Email address", required="" , type="email", name='email')
-			label Password Name
-			input(class="form-control" , placeholder="Password" ,required="" ,type="password",name='password')
-			button(class="btn btn-lg btn-primary btn-block" type="submit") cadastrar
-		<a href="/"> Voltar </a>
+			.form-inline
+				.form-group   
+					label(class="form-signin-heading") Primeiro Nome
+					input(class="form-control" ,placeholder="first name" ,required="", autofocus="",type="text", name='name')
+				.form-group   
+					label(class="form-signin-heading") Ultimo Nome
+					input(class="form-control" ,placeholder="last name" ,required="" , type="text", name='sname')
+			.form-group   
+				label(class="form-signin-heading") Email
+				input(class="form-control" ,placeholder="Email address", required="" , type="email", name='email')
+			.form-group   
+				label(class="form-signin-heading") Password
+				input(class="form-control" , placeholder="Password" ,required="" ,type="password",name='password')
+			.form-group
+				button(class="btn btn-lg btn-primary btn-block" type="submit") cadastrar
+			.form-group   
+				<a href="/#" , class="btn btn-lg btn-block"> Voltar </a>

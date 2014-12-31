@@ -1,18 +1,22 @@
 block content
-	.container
-		if error
-			.alert-danger
-				p #{error}
-		h1 #{title}
-		form(role="form" , method="post", action="/api/post/")
-			input(type="hidden", name="_csrf", value="#{csrfToken}")
-			div(class="form-group")
-				label(for="titulo") Titulo
-				input(type="text" , placeholder="Titulo" , name="titulo", id="titulo")
-			div(class="form-group")
-				label(for="body") Texto	
-				textarea(placeholder="Testo do post", name="body", id="body" , cols="30", rows="10" ,maxlength="10000")
-			div(class="form-group")
-				label(for='tag') Tags
-				input(type="text" , placeholder="tags" name='tag', id='tag')
-				button(class='btn btn-success') Salvar
+	.postar
+		.container-fluit
+			if error
+				.alert-danger
+					p #{error}
+			h1 #{title}
+			form(role="form" , class="form-signin",method="post", action="/api/post/")
+				input(class="form-control",type="hidden", name="_csrf", value="#{csrfToken}")
+				.form-group
+					label(class="form-signin-heading",for="titulo") Titulo
+					input(class="form-control",type="text" , placeholder="Titulo" , name="titulo", id="titulo")
+				.form-group
+					label(class="form-signin-heading",for="body") Texto	
+					textarea(class="form-control",placeholder="Testo do post", name="body", id="body" ,maxlength="10000")
+				.form-group
+					label(class="form-signin-heading",for='tag') Tags
+					input(class="form-control",type="text" , placeholder="tags" name='tag', id='tag')
+				.form-group
+					button(class="btn btn-lg btn-primary btn-block",type="submit") Salvar
+				.form-group
+					<a href="/#" class="btn btn-block"> Voltar </a>

@@ -12,12 +12,12 @@ a {
 }
 
 textarea{ 
-  width: 470px; 
-  min-width:470px; 
-  max-width:470px; 
-  height:300px; 
-  min-height:300px;  
-  max-height:300px;
+  width: 250px; 
+  min-width:600px; 
+  max-width:600px; 
+  height:200px; 
+  min-height:200px;
+  max-height:200px;
 }
 .search{
  margin: 12px;
@@ -26,11 +26,13 @@ textarea{
   width: 900px;
   border: none;
 }
-.cadastrar{
+.postar, .cadastrar{
   width: 600px;
   height: 270px;
-  margin: 11% auto;
+  margin: 0 auto;
 }
+
+
 .login{
   width: 300px;
   height: 300px;

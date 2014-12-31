@@ -1,5 +1,8 @@
 (function() {
 	'use strict';
+
+	var flag = false;
+
 	angular.module('AppPost',
 		[
 			'ngRoute',
@@ -35,6 +38,7 @@
 		
 	})
 	.controller('LerPostCtrl', function ($scope, $http) {
+		flag = true;
 		$http.get('/api/post/')
 			.success(function(data) {
 				$scope.posts = data;

@@ -396,7 +396,7 @@
     
     module.provider('paginationTemplate', function() {
 
-        var templatePath = 'directives/pagination/dirPagination.tpl.html';
+        var templatePath = 'bower_components/angular-utils-pagination/dirPagination.tpl.html';
         
         this.setPath = function(path) {
             templatePath = path;

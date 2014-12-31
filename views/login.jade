@@ -7,11 +7,14 @@ block content
           .alert-danger
             p #{error}
         input(type="hidden", name="_csrf", value="#{csrfToken}")
-        input(class="form-control" placeholder="Email address" required="" autofocus="" type="email" name='email')
-        input(class="form-control" placeholder="Password" required="" type="password" name='password')
-        div(class="checkbox")
-        label
-        input(value="remember-me" type="checkbox")
-        span Lembrar 
-        button(class="btn btn-lg btn-primary btn-block" type="submit") Logar
-    p <a href="#register"> registrar  </a>
+        .form-group
+            input(class="form-control" placeholder="Email address" required="" autofocus="" type="email" name='email')
+        .form-group
+            input(class="form-control" placeholder="Password" required="" type="password" name='password')
+        .form-group
+                input(type="checkbox")
+                label Lembrar
+        .form-group 
+            button(class="btn btn-lg btn-primary btn-block" type="submit") Logar
+        .form-group     
+            <a href="#register" class="btn btn-lg btn-primary btn-block"> registrar  </a>
