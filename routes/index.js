@@ -32,21 +32,28 @@ router.post('/register',middlewares.authrequired,function(req, res) {
 		}
 	});
 });
+var error = null ;
 
 router.get('/login',function(req,res) {
-	res.render('login.jade',{ csrfToken :  req.csrfToken() });
+	res.render('login.jade',{ 
+		csrfToken :  req.csrfToken(),
+		error : error 
+	});
 });
 
 router.post('/login',function(req, res) {
 	models.Users.findOne({email: req.body.email},function(err, user) {
 		if(!user){
-			res.render('login.jade',{error : 'Email ou senha Invalidos'});
+			error = 'Email ou senha Invalidos'
+			res.redirect('/#login')			
 		}else{
 			if(bcrypt.compareSync(req.body.password , user.password)){
 				req.session.user = user; // recebendo os dados para session
 				res.redirect('/#postar');
+				error = null;
 			}else{
-				res.render('login.jade',{error : 'Email ou senha Invalidos'});
+				error = 'Email ou senha Invalidos'
+				res.redirect('/#login')	
 			}
 		}
 
