@@ -3,8 +3,8 @@ function authrequiredHandler(req, res, next) {
 
 	debug('authrequired middlerware');
   	if(!req.user){
-		res.redirect('/#login');
-		next();
+  		res.redirect('/#login');
+  		next();
 	}else {
 		next();
 	}

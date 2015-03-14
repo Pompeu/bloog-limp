@@ -7,6 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose    = require("mongoose"),
     sessions = require('client-sessions'),
+    cors = require('cors'),
     csrf = require('csurf');
 
 var restful = global.restful = require('node-restful');
@@ -15,7 +16,8 @@ var models = global.models = require('./models');
 var middlewares = global.middlewares = require('./middlewares');
 
 function connectionHandler(err) {
-    debug( err || 'on');
+    err = '123123'
+    debug( err);
 };
 
 
@@ -54,7 +56,6 @@ app.use(sessions({
     ephemeral: true, //deletar cookie quando nevagador fechar
 
 }));
-app.use(csrf());
 
 app.use(function(req , res, next) {
     if(req.session && req.session.user){
@@ -72,10 +73,16 @@ app.use(function(req , res, next) {
     }
 });
 
+var index = require('./routes/index'),
+    post = require('./routes/posts'),
+    users = require('./routes/users')
+    alunos = require('./routes/alunos');
 
-app.use('/',require('./routes/index'));
-app.use('/api',require('./routes/posts'));
-app.use('/api',middlewares.authrequired,require('./routes/users'));
+app.use('/api',cors(),alunos);   
+app.use('/',csrf(),index);
+app.use('/api',csrf(),post);
+app.use('/api',csrf(),middlewares.authrequired,users);
+
 
 
 // catch 404 and forward to error handler
