@@ -1,3 +1,4 @@
+
 var express = require('express'),
     app = express(),
     path = require('path'),
@@ -45,6 +46,7 @@ app.locals.pretty = true;
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(sessions({
     cookieName: 'session',
