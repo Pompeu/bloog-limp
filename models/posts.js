@@ -9,7 +9,7 @@ function postsHandler() {
   
   schema = new Schema({
     id: ObjectId,
-    titulo: {type : String, required:true, trin:true ,unique: true},
+    titulo: {type : String, required:true, trim:true ,unique: true},
     body:  {type : String, required:true, trim:true},
     tag:  {type : String, required:true, trim:true},   
   });

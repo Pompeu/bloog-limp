@@ -1,11 +1,9 @@
 (function() {
 	'use strict';
-
-	var flag = false;
-
 	angular.module('AppPost',
 		[
 			'ngRoute',
+			'ngMaterial',
 			'angularUtils.directives.dirPagination'
 		])
     .config(function ($routeProvider) {
@@ -29,33 +27,24 @@
 		      .when('/contato', {
 		      	templateUrl: '/contato',
 		      	controller: 'ContatoCtrl'
+		      })
+		      .when('/post-datails', {
+		      	templateUrl: '/post-datails',
+		      	controller: 'PostCrtlDatails'
 		      })		     
 		      .otherwise({
 		        redirectTo: '/lerpost',
 		      });
 	})
-	.controller('PostarCrtl', function ($scope) {
-		
-	})
 	.controller('LerPostCtrl', function ($scope, $http) {
-		flag = true;
 		$http.get('/api/post/')
 			.success(function(data) {
 				$scope.posts = data;
 			})
 			.error(function(data, status) {
 				console.log(data , status);
-			})
-	})
-	.controller('LoginCtrl', function ($scope) {
-		
-	})
-	.controller('RegistrarCtrl',function ($scope) {
-		
-	})
-	.controller('ContatoCtrl', function ($scope) {
-		
-	})
+			});
+	});
 })();
 
 

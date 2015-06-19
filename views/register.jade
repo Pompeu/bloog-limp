@@ -7,13 +7,12 @@ block content
 		form(action='/register', class="form-signin" ,role="form" ,method="post")
 			h3(class="form-signin-heading") Cadastrar
 			input(type="hidden", name="_csrf", value="#{csrfToken}")
-			.form-inline
-				.form-group   
-					label(class="form-signin-heading") Primeiro Nome
-					input(class="form-control" ,placeholder="first name" ,required="", autofocus="",type="text", name='name')
-				.form-group   
-					label(class="form-signin-heading") Ultimo Nome
-					input(class="form-control" ,placeholder="last name" ,required="" , type="text", name='sname')
+			.form-group   
+				label(class="form-signin-heading") Primeiro Nome
+				input(class="form-control" , placeholder="first name" ,required="", autofocus="",type="text", name='name')
+			.form-group   
+				label(class="form-signin-heading") Ultimo Nome
+				input(class="form-control" , placeholder="last name" ,required="" , type="text", name='sname')
 			.form-group   
 				label(class="form-signin-heading") Email
 				input(class="form-control" ,placeholder="Email address", required="" , type="email", name='email')

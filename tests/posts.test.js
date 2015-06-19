@@ -13,7 +13,7 @@ describe('testing api posts', function () {
 			titulo : ch.Name.title(),
     		body :  ch.Lorem.text(),
     		tag :  ch.Lorem.words()
- 		}
+ 		};
 
  		request(baseURL)
  			.post('posts')
@@ -53,7 +53,7 @@ describe('testing api posts', function () {
 			titulo : ch.Name.title(),
     		body :  ch.Lorem.text(),
     		tag :  ch.Lorem.words()
- 		}
+ 		};
 
  		request(baseURL)
 			.put('posts/'+id)

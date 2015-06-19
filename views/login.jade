@@ -1,20 +1,19 @@
 block content
-  .login
-    .container-fluit
+  .login(layout="column")
+    .md-content(layout-padding class="autoScroll")
       form(action='/login' class="form-signin" role="form" method="post")
-        h2(class="form-signin-heading") Sign IN
+        md-toolbar(md-scroll-shrink class="form-signin-heading") Sign IN
         if error
-          .alert-danger
+          .md-warn
             p #{error}
         input(type="hidden", name="_csrf", value="#{csrfToken}")
-        .form-group
-            input(class="form-control" placeholder="Email address" required="" autofocus="" type="email" name='email')
-        .form-group
-            input(class="form-control" placeholder="Password" required="" type="password" name='password')
-        .form-group
-                input(type="checkbox")
-                label Lembrar
-        .form-group 
-            button(class="btn btn-lg btn-primary btn-block" type="submit") Logar
-        .form-group     
-            <a href="#register" class="btn btn-lg btn-primary btn-block"> registrar  </a>
+        md-input-container(class="md-icon-float")
+          label Email address
+            md-icon(md-svg-src="img/icons/ic_person_24px.svg" class="name")
+          input(ng-model="user.email" required="" autofocus="" type="email")
+        md-input-container(class="md-icon-float")
+          label Password
+            md-icon(md-svg-src="img/icons/ic_person_24px.svg" class="name")
+          input(ng-model="user.password" required="" type="password")
+        md-button(class="md-raised md-primary") Logar
+        md-button(class="md-icon-button md-primary", href="#register") registrar

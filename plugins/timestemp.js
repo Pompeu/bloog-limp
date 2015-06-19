@@ -8,7 +8,7 @@ function timestempHandler(schema, options) {
   function preSaveHandler(next) {
   	this.upadate_at = Date.now();
   	next();
-  };
+  }
 
   schema.pre('save',preSaveHandler);
 }

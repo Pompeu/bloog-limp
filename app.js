@@ -12,15 +12,14 @@ var express = require('express'),
     csrf = require('csurf');
 
 var restful = global.restful = require('node-restful');
-var debug = global.debug = require('debug')('pompeuapi');
+var debug = global.debug = require('debug')('pompeuapi');   
 var models = global.models = require('./models');
 var middlewares = global.middlewares = require('./middlewares');
 
 function connectionHandler(err) {
-    err = '123123'
+    err = '123123';
     debug( err);
-};
-
+}
 
 var local = 'mongodb://localhost/pompeuapi';
 var mongolab = 'mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi';
@@ -61,7 +60,9 @@ app.use(sessions({
 
 app.use(function(req , res, next) {
     if(req.session && req.session.user){
-       models.Users.findOne({email : req.session.user.email},function(err,user) {
+       models
+       .Users
+       .findOne({email : req.session.user.email},function(err,user) {
             if(user){
                 req.user = user;
                 delete req.user.password;
@@ -77,10 +78,8 @@ app.use(function(req , res, next) {
 
 var index = require('./routes/index'),
     post = require('./routes/posts'),
-    users = require('./routes/users')
-    alunos = require('./routes/alunos');
+    users = require('./routes/users');
 
-app.use('/api',cors(),alunos);   
 app.use('/',csrf(),index);
 app.use('/api',csrf(),post);
 app.use('/api',csrf(),middlewares.authrequired,users);

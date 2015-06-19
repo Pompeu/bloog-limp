@@ -44,16 +44,16 @@ router.get('/login',function(req,res) {
 router.post('/login',function(req, res) {
 	models.Users.findOne({email: req.body.email},function(err, user) {
 		if(!user){
-			error = 'Email ou senha Invalidos'
-			res.redirect('/#login')			
+			error = 'Email ou senha Invalidos';
+			res.redirect('/#login');			
 		}else{
 			if(bcrypt.compareSync(req.body.password , user.password)){
 				req.session.user = user; // recebendo os dados para session
 				res.redirect('/#postar');
 				error = null;
 			}else{
-				error = 'Email ou senha Invalidos'
-				res.redirect('/#login')	
+				error = 'Email ou senha Invalidos';
+				res.redirect('/#login');	
 			}
 		}
 
@@ -81,5 +81,8 @@ router.get('/dashboard',function(req,res) {
 	res.render('dashboard.jade',{user : req.user});
 });
 
+router.get('/post-datails',function(req,res) {
+	res.render('post-deatails.jade',{user : req.user});
+});
 
 module.exports = exports = router;

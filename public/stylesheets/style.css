@@ -2,13 +2,14 @@
 	padding: 0px;
 	margin: 0px;
 }
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
 }
 
 textarea{ 
@@ -19,19 +20,21 @@ textarea{
   min-height:200px;
   max-height:200px;
 }
+
 .search{
  margin: 12px;
 }
+
 .header{
   width: 900px;
   border: none;
 }
+
 .postar, .cadastrar{
   width: 600px;
   height: 270px;
   margin: 0 auto;
 }
-
 
 .login{
   width: 300px;
@@ -39,23 +42,18 @@ textarea{
   margin: 11% auto;
   
 }
+
 .footer-center{
   width: 900px;
   height: 70px;
   margin: 0px auto;
 }
+
 .footer-center-logos{
   width: 150px;
   height: 60px;
   margin: 15px;
   float: left;
-}
-
-.post{
-  width: 900px;
-  height: 550px;
-  margin: 0px auto;
-  padding: 5px;
 }
 
 .post-centro{
@@ -68,7 +66,7 @@ textarea{
   width: 100%;
   height: 150px;
   text-align: justify;
-   
+  word-wrap: break-word;
 }
 
 .post-centro-texto-titulo{
@@ -87,3 +85,31 @@ textarea{
 .img-child{
   width: 120px;
 }
+
+footer {
+  background-color: #ccc;
+  margin-bottom: 1px;
+  display: block;
+}
+
+md-card {
+  padding: 20px;
+}
+
+.tabsdemoDynamicHeight md-content {
+  background-color: transparent !important;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1;
+}
+
+.tabsdemoDynamicHeight md-content md-tabs md-tabs-canvas {
+      background: white; 
+}
+
+.tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; 
+}
+
