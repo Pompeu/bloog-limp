@@ -1,4 +1,3 @@
-
 var express = require('express'),
     app = express(),
     path = require('path'),
@@ -6,34 +5,15 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    mongoose    = require("mongoose"),
     sessions = require('client-sessions'),
     cors = require('cors'),
-    csrf = require('csurf');
+    csrf = require('csurf'),
+    dburl = require('./configs/index').db,
+    mongoose = require("mongoose").connect(dburl);
 
-var restful = global.restful = require('node-restful');
-var debug = global.debug = require('debug')('pompeuapi');   
-var models = global.models = require('./models');
-var middlewares = global.middlewares = require('./middlewares');
-
-function connectionHandler(err) {
-    err = '123123';
-    debug( err);
-}
-
-var local = 'mongodb://localhost/pompeuapi';
-var mongolab = 'mongodb://pompeu:552525@ds049130.mongolab.com:49130/pompeuapi';
-
-mongoose
-    .connect(local)
-    .connection
-    .on('connected', connectionHandler)
-    .on('error',function() {
-        mongoose
-        .connect(mongolab)
-        .connection
-        .on('connected', connectionHandler)
-    });
+var restful = global.restful = require('node-restful'),   
+    models = global.models = require('./models'),
+    middlewares = global.middlewares = require('./middlewares');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -47,34 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(sessions({
-    cookieName: 'session',
-    secret : '3120j0wej0134ja0j9013asj0575a0934',
-    duration : 7 * 60 * 1000,
-    activeDuration: 5 * 60 * 1000,
-    httpOnly: true, //navegador nunca acesse meus cookies
-    secure: true, //cookier samento https
-    ephemeral: true, //deletar cookie quando nevagador fechar
+app.use(sessions(models.SessionDetails));
 
-}));
-
-app.use(function(req , res, next) {
-    if(req.session && req.session.user){
-       models
-       .Users
-       .findOne({email : req.session.user.email},function(err,user) {
-            if(user){
-                req.user = user;
-                delete req.user.password;
-                req.session.user = req.user;
-                res.locals.user =  req.user;
-            }
-            next();
-        });
-    }else{
-        next();
-    }
-});
+app.use(middlewares.sessionCheck);
 
 var index = require('./routes/index'),
     post = require('./routes/posts'),

@@ -77,8 +77,6 @@ router.get('/lerpost',function(req,res) {
 	res.render('lerpost.jade');
 });
 
-
-
 router.get('/dashboard',function(req,res) {
 	res.render('dashboard.jade',{user : req.user});
 });

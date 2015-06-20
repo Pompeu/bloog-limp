@@ -28,16 +28,9 @@
 		      
 		    $urlRouterProvider.otherwise('/lerpost');
 
-		    var tems = ['red', 'pink', 'purple',
-				    'deep-purple', 'indigo',
-				    'blue', 'light-blue', 'cyan',
-				    'teal', 'green', 'light-green',
-				    'lime', 'yellow', 'amber', 'orange',
-				    'deep-orange', 'brown', 'grey', 'blue-grey'];
-				    
-				 $mdThemingProvider.theme('default')
-					  .primaryPalette(tems[Math.floor((Math.random() * 19) + 1)])
-				    .accentPalette(tems[Math.floor((Math.random() * 19) + 1)]);
+				$mdThemingProvider.theme('default')
+					.primaryPalette('blue')
+				  .accentPalette('light-blue');
 	}])
 	.controller('LerPostCtrl', function ($scope, $http) {
 		$http.get('/api/post/')

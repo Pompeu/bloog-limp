@@ -113,3 +113,15 @@ md-card {
     margin-top: 0; 
 }
 
+.md-menu-lateal .md-menu-demo {
+  padding: 24px; }
+.menu-demo-container .menu-demo-container {
+  min-height: 200px; }
+
+
+
+.fabToolbardemoBasicUsage md-fab-toolbar.md-left md-fab-trigger.align-with-text {
+  left: 7px; }
+
+
+
