@@ -41,6 +41,11 @@ router.get('/login',function(req,res) {
 	});
 });
 
+router.get('/logout',function(req,res) {
+	req.session.reset();
+	res.redirect('/');
+});
+
 router.post('/login',function(req, res) {
 	models.Users.findOne({email: req.body.email},function(err, user) {
 		if(!user){
@@ -72,17 +77,18 @@ router.get('/lerpost',function(req,res) {
 	res.render('lerpost.jade');
 });
 
-router.get('/logout',function(req,res) {
-	req.session.reset();
-	res.redirect('/');
-});
+
 
 router.get('/dashboard',function(req,res) {
 	res.render('dashboard.jade',{user : req.user});
 });
 
-router.get('/post-datails',function(req,res) {
-	res.render('post-deatails.jade',{user : req.user});
+router.get('/post-details',function(req,res) {
+	res.render('post-details.jade',{user : req.user});
+});
+
+router.get('/tutoriais',function(req,res) {
+	res.render('tutoriais.jade',{user : req.user});
 });
 
 module.exports = exports = router;

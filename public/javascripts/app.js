@@ -1,41 +1,44 @@
 (function() {
 	'use strict';
-	angular.module('AppPost',
-		[
-			'ngRoute',
-			'ngMaterial',
-			'angularUtils.directives.dirPagination'
-		])
-    .config(function ($routeProvider) {
-			$routeProvider
-		       .when('/login', {
-		      	templateUrl: '/login',
-		      	controller: 'LoginCtrl'
-		      })
-		      .when('/register', {
-		      	templateUrl: '/register',
-		      	controller: 'RegistrarCtrl'
-		      })		     
-		      .when('/postar', {
-		        templateUrl: '/postar',
-		        controller: 'PostarCrtl'
-		      })
-		      .when('/lerpost', {
-		      	templateUrl: '/lerpost',
+	angular.module('AppPost',['ui.router','ngMaterial'])
+    .config(['$stateProvider','$urlRouterProvider', '$mdThemingProvider' ,
+    	function ($stateProvider, $urlRouterProvider , $mdThemingProvider) {
+			
+			$stateProvider
+		      .state('lerpost', {
+		      	url: '/lerpost',
+		      	templateUrl: 'lerpost',
 		      	controller: 'LerPostCtrl'
 		      })
-		      .when('/contato', {
-		      	templateUrl: '/contato',
+		      .state('post-details', {
+		      	url: '/post-details',
+		      	templateUrl: 'post-details',
+		      	controller: 'PostCrtlDatails'
+		      })
+		      .state('contato', {
+		      	url: '/contato',
+		      	templateUrl: 'contato',
 		      	controller: 'ContatoCtrl'
 		      })
-		      .when('/post-datails', {
-		      	templateUrl: '/post-datails',
-		      	controller: 'PostCrtlDatails'
-		      })		     
-		      .otherwise({
-		        redirectTo: '/lerpost',
-		      });
-	})
+		      .state('tutoriais', {
+		      	url: '/tutoriais',
+		      	templateUrl: 'tutoriais',
+		      	controller: 'TutoriaisCtrl'
+		      });		      	     
+		      
+		    $urlRouterProvider.otherwise('/lerpost');
+
+		    var tems = ['red', 'pink', 'purple',
+				    'deep-purple', 'indigo',
+				    'blue', 'light-blue', 'cyan',
+				    'teal', 'green', 'light-green',
+				    'lime', 'yellow', 'amber', 'orange',
+				    'deep-orange', 'brown', 'grey', 'blue-grey'];
+				    
+				 $mdThemingProvider.theme('default')
+					  .primaryPalette(tems[Math.floor((Math.random() * 19) + 1)])
+				    .accentPalette(tems[Math.floor((Math.random() * 19) + 1)]);
+	}])
 	.controller('LerPostCtrl', function ($scope, $http) {
 		$http.get('/api/post/')
 			.success(function(data) {
@@ -44,7 +47,26 @@
 			.error(function(data, status) {
 				console.log(data , status);
 			});
-	});
+	})
+	.controller('PostCrtlDatails', ['$scope', function ($scope) {
+		
+	}])
+	.controller('ContatoCtrl', ['$scope', function ($scope) {
+		
+	}])
+	.controller('TutoriaisCtrl', ['$scope', function ($scope) {
+		$scope.tutoriais = [
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+			{titulo : "nodeJS" , link : "http://youtube.de" ,  resumo : "nodeJS Poder"},
+		];
+		
+	}]);
 })();
 
 

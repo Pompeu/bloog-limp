@@ -2,17 +2,10 @@ block content
   div(flex)
     md-toolbar(class="md-tall" layout="row" layout-align="center end")
       div(flex flex-sm-"100" flex-gt-sm-"95" flex-md-"80"  layout="column")
-        h2 The Heading
+        h2(layout="row" layout-align="center center")
+          | #{title}
         span(flex)
-        md-tabs(md-stretch-tabs="always" class="md-primary md-hue-2")
-          md-tab
-            md-tab-label Posts
-          md-tab
-            md-tab-label Tutoriais
-          md-tab
-            md-tab-label Contato
-        //- md-button(ng-href="#lerpost" aria-label="button Ler Posts")
-        //- md-button(ng-href="#postar" aria-label="button Ler Posts") Postar
-        //- md-button(ng-href="#contato" aria-label="button Contato") Contato
-        //- md-button(ng-href="#login" aria-label="button Login") Login
-        //- md-button(ng-href="#logout" aria-label="button Logout") Logout
+        md-tabs(md-stretch-tabs="always" md-selected="selectedIndex" class="md-primary md-hue-2")
+          md-tab(label="lerpost" ui-sref="lerpost")
+          md-tab(label="Tutoriais" ui-sref="tutoriais")
+          md-tab(label="Contato" ui-sref="contato")
