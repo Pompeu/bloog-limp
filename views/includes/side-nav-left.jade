@@ -1,0 +1,6 @@
+section(layout="row", flex)
+  md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="left", md-is-locked-open="$mdMedia('gt-md')")
+    md-toolbar.md-theme-indigo
+      h1.md-toolbar-tools #{title} Menu
+      md-button(ng-click="toggleRightClose()", class="md-raised")
+        | Close Sidenav Right

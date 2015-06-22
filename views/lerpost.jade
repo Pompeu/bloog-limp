@@ -1,16 +1,14 @@
 block content
   md-content(class="md-padding")
     md-card(layout="column" layout-fill style="padding-bottom: 32px;")
-      md-whiteframe(class="md-padding md-whiteframe-z5" layout="row")
+      md-whiteframe(class="md-padding md-whiteframe-z5", layout="row")
         md-list(class="post-centro")
           md-list-item(ng-repeat="post in posts | filter:searchPost")
             md-card-content(layout-align="center center")  
-              h1.md-title
-                | {{post.titulo}}
+              a(href="#/post-details/{{post._id}}")
+                h1.md-title
+                  | {{post.titulo}}
               p
-                | {{post.body | limitTo: 20}}
-              div(class="md-actions" layout="row" layout-align="end center")
-                a(ng-href="#/post-details")
-                  strong.md-caption(style="float:right")
-                  | ler mais
-            md-divider(md-inset ng-if="!$last")
+                | {{post.resumo}}
+              div(class="md-actions", layout="row", layout-align="end center")
+            md-divider(md-inset, ng-if="!$last")

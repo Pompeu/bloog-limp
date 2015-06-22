@@ -1,15 +1,17 @@
 block content
   md-toolbar(hide-sm , class="md-tall" , layout="row",  layout-align="center center")      
     div(flex="99" , flex-sm="100",  flex-gt-sm="95" , flex-md="80",  layout="column")
-      div(flex="66" , flex-sm="33",  layout="column",  layout-align="center center")
-        strong.md-toolbar-tools(layout-align-gt-sm="center") #{title}  
-      div(flex="33" , flex-sm="66")
-        include contact-buttom
+      div(flex="66",  layout="row" , layout-align="space-around center")
+        h1 #{title} 
+        include login-button     
+        include contact-button
       span(flex)
       md-tabs(hide-sm, md-stretch-tabs="always", md-selected="selectedIndex" ,class="md-primary md-hue-2")
-        md-tab(label="lerpost", ui-sref="lerpost")
+        md-tab(label="Posts", ui-sref="lerpost")
         md-tab(label="Tutoriais", ui-sref="tutoriais")
         md-tab(label="Contato", ui-sref="contato")
+        md-tab(ng-if="user" ,label="Postar", ui-sref="add-post")
   md-toolbar(flex , hide-gt-sm ,class="md-tall" ,layout="row")
-    include menu-lateral
-    //- include contact-buttom
+    div(flex="99",  layout="row" , layout-align="space-around center")
+      include menu-lateral
+      include login-button

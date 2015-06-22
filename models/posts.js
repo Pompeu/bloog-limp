@@ -11,6 +11,7 @@ function postsHandler() {
     id: ObjectId,
     titulo: {type : String, required:true, trim:true ,unique: true},
     body:  {type : String, required:true, trim:true},
+    resumo:  {type : String, required:true, trim:true},
     tag:  {type : String, required:true, trim:true},   
   });
 

@@ -1,0 +1,1 @@
+export DEBUG=blogDev ; PORT=3000 ; nodemon bin/www

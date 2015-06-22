@@ -5,12 +5,9 @@ md-content(class="md-padding")
       md-list(class="post-centro")
         md-list-item(ng-repeat="tutorial in tutoriais ")
           md-card-content(layout-align="center center")  
-            h1.md-title
-              | {{tutorial.titulo}}
+            a(ng-href="#/tutoriais/{{tutorial.id}}")
+              h1.md-title
+                | {{tutorial.titulo}}
             p
-              | {{tutorial.resumo | limitTo: 20}}
-            div(class="md-actions" layout="row" layout-align="end center")
-              a(ng-href="#/{{tutorial.link}}")
-                strong.md-caption(style="float:right")
-                | ler mais
+              | {{tutorial.resumo | limitTo: 20}}            
           md-divider(md-inset ng-if="!$last")

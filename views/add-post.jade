@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	md-card
+		h1.md-toolbar-tools
+			| Blog Posts
+		md-content.layout-padding.md-whiteframe-z5.md-padding
+			form(name="postForm")
+				div(layout="column")
+					md-input-container
+						label Title
+						input(md-maxlength="30", required, name="title", ng-model="post.title")
+						div(ng-messages="postForm.title.$error")
+							div(ng-message="required") This is required.
+							div(ng-message="md-maxlength") The name has to be less than 30 characters long.
+					md-input-container
+						label Body
+						textarea(md-maxlength="800", required, name="body",columns="10" ,ng-model="post.body")
+						div(ng-messages="postForm.body.$error")
+							div(ng-message="required") This is required.
+							div(ng-message="md-maxlength") The name has to be less than 800 characters long.
+					md-input-container
+						label Tags
+						input(md-maxlength="20", required, name="tags", ng-model="post.tags")
+						div(ng-messages="postForm.tags.$error")
+							div(ng-message="required") This is required.
+							div(ng-message="md-maxlength") The name has to be less than 20 characters long.
+					md-imput-container(layout="row", layout-align="end end")
+						md-button.md-raised.md-primary(ng-disabled="postForm.$invalid",ng-click="click(post)") Postar

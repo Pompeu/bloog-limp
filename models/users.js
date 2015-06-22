@@ -9,7 +9,6 @@ function usersHandler() {
   schema = new Schema({
     id: ObjectId,
     name : {type : String, required:true, trin:true},
-    sname : {type : String, required:true, trin:true},
     email : {type : String, required:true, trin:true , unique: true },
     password : {type : String, required:true, trin:true},
   });

@@ -2,6 +2,7 @@ var express = require('express'),
     app = express(),
     path = require('path'),
     favicon = require('serve-favicon'),
+    compress = require('compression'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
@@ -18,17 +19,20 @@ var restful = global.restful = require('node-restful'),
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.locals.pretty = true;
+
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(compress());
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(sessions(models.SessionDetails));
+app.disable('x-powered-by');
+app.enable('etag');
 
+app.use(sessions(models.SessionDetails));
 app.use(middlewares.sessionCheck);
 
 var index = require('./routes/index'),

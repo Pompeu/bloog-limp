@@ -13,12 +13,9 @@ a {
 }
 
 textarea{ 
-  width: 250px; 
-  min-width:600px; 
-  max-width:600px; 
-  height:200px; 
-  min-height:200px;
-  max-height:200px;
+  width: 300px; 
+  min-width:300px; 
+  max-width:300px;
 }
 
 .search{
@@ -29,18 +26,20 @@ textarea{
   width: 900px;
   border: none;
 }
-
+@media (max-width: 600px) {
+  .md-whiteframe-z5 {
+  }
+}
 .postar, .cadastrar{
   width: 600px;
-  height: 270px;
   margin: 0 auto;
+  border: 5px;
 }
 
 .login{
   width: 300px;
   height: 300px;
   margin: 11% auto;
-  
 }
 
 .footer-center{
@@ -58,8 +57,7 @@ textarea{
 
 .post-centro{
   padding: 5px;
-  width: 99%;
-  
+  width: 99%;  
 }
 
 .post-centro-resumo{

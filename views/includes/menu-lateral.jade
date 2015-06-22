@@ -1,12 +1,15 @@
-div(flex="33" ,layout="row" layout-align="start start")
-  md-fab-speed-dial(md-open="false", md-direction="down", ng-class="md-scale")
-    md-fab-trigger
-      md-button(aria-label="Contato", class="md-fab md-primary md-accent")
-        md-icon(md-svg-src="images/icons/ic_menu_48px.svg")
-    md-fab-actions
-      md-button(ui-sref="lerpost", aria-label="Posts", md-no-ink class="md-primary md-raised md-accent")
-        span Posts
-      md-button(ui-sref="tutoriais", aria-label="Tutoriais", md-no-ink class="md-primary md-raised md-accent")
-        span Tutoriais
-      md-button(ui-sref="contato", aria-label="Contato", md-no-ink class="md-primary md-raised md-accent")
-        span Contato
+div(flex="33" ,layout="row", layout-align="start start")
+  div(ng-controller="MenuLateralCtrl as menuLeft")
+    md-button(ng-click="menuLeft.toggleRight()", aria-label="Contato", class="md-fab md-primary md-accent")
+      md-icon(md-svg-src="images/icons/ic_menu_48px.svg")
+  div(ng-controller="LeftNavCtrl as leftNav" , layout="column", style="height:500px; position: fixed;")
+    section(ng-controller="LeftNavCtrl as leftNav", layout="row", flex)
+      md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="left", md-is-locked-open="$mdMedia('gt-md')")
+        md-toolbar
+          h1.md-toolbar-tools #{title} Menu
+          div(layout="column")
+            md-button(ng-click="leftNav.close()", ui-sref="lerpost", class="md-accent md-raised md-hue-4") Posts
+            md-button(ng-click="leftNav.close()", ui-sref="tutoriais",class="md-accent md-raised md-hue-4") Tutoriais
+            md-button(ng-click="leftNav.close()", ui-sref="contato",class="md-accent md-raised md-hue-4") Contato
+            md-button(class="md-fab", ng-click="leftNav.close()",aria-label="close sidnav left")
+              md-icon(md-svg-src="images/icons/ic_close_48px.svg")

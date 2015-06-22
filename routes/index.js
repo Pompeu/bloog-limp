@@ -69,16 +69,12 @@ router.get('/contato',function(req,res) {
 	res.render('contato.jade');
 });
 
-router.get('/postar',function(req,res) {
-	res.render('postar.jade',{ csrfToken :  req.csrfToken() });
+router.get('/add-post',function(req,res) {
+	res.render('add-post.jade');
 });
 
 router.get('/lerpost',function(req,res) {
 	res.render('lerpost.jade');
-});
-
-router.get('/dashboard',function(req,res) {
-	res.render('dashboard.jade',{user : req.user});
 });
 
 router.get('/post-details',function(req,res) {
@@ -87,6 +83,10 @@ router.get('/post-details',function(req,res) {
 
 router.get('/tutoriais',function(req,res) {
 	res.render('tutoriais.jade',{user : req.user});
+});
+
+router.get('/dashboard',function(req,res) {
+	res.render('dashboard.jade',{user : req.user});
 });
 
 module.exports = exports = router;
