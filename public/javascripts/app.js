@@ -58,7 +58,7 @@
   }])
   .controller('PostCrtlDatails', ['$scope','$stateParams','ajaxService',
    function ($scope,$stateParams, ajaxService) {
-   
+     
       ajaxService.get('post',$stateParams.postId)
         .success(function(data) {
           $scope.post = data;
@@ -99,8 +99,3 @@
     };
   }]);
 })();
-
-
-
-
-	
