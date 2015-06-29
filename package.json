@@ -2,7 +2,6 @@
   "name": "blogDev",
   "version": "0.0.1",
   "private": true,
-   "private": true,
   "engines": {
     "node": "0.12.x",
     "npm": "2.1.x"
