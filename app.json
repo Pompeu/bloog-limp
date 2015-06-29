@@ -1,6 +1,6 @@
 {
-	"name": "api-rest-Pompeu",
-	"description": " api rest for teste with nodeJs and Mongo DB",
-	"website": "https://github.com/Pompeu/ApiRestNodeJS",
-	"keywords": ["node"]
+	"name": "bloog-limp",
+	"description": " bloog-limp mean for heroku",
+	"website": "https://github.com/Pompeu/bloog-limp",
+	"keywords": ["node", "angular", "angularMaterial", "mongoDb"]
 }
