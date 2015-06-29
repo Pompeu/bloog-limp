@@ -3,7 +3,7 @@ block content
     md-card(layout="column" layout-fill style="padding-bottom: 32px;")
       md-whiteframe(class="md-padding md-whiteframe-z5", layout="row")
         md-list(class="post-centro")
-          md-list-item(ng-repeat="post in posts | filter:searchPost")
+          md-list-item(ng-repeat="post in $root.posts")
             md-card-content(layout-align="center center")  
               a(href="#/post-details/{{post._id}}")
                 h1.md-title

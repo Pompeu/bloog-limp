@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
-models.Users.methods(['get', 'put', 'post', 'delete']);  
-
-models.Users.register(router,'/user');
+router
+  .post('/',middlewares.usersAdd,controllers.usersAdd) 
+  .post('/auth',middlewares.usersAuth,controllers.usersAuth) 
 
 module.exports = exports = router;

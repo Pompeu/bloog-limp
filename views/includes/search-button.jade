@@ -1,0 +1,20 @@
+div(ng-controller="SearchCtrl", flex="33" ,layout="row")
+  md-button.md-fab.md-accent(aria-label="btn search", ng-click="open()")
+    md-icon(md-svg-src="images/icons/find.svg")
+  div(class="search", layout="column",layout-align="end end")
+    section(layout="row", flex)
+      md-sidenav(class="md-sidenav-right md-whiteframe-z2", md-component-id="right")
+          md-toolbar.md-theme-indigo
+            md-content(ng-controller="RightCtrl", layout-padding)
+              form(name="postsearch")
+                md-input-container
+                  label(for="testInput")
+                    | SEARCH
+                  input(md-maxlength="10", md-minlength="5" r,required , name="search" ,type="text", ng-model="searchTerm" , md-sidenav-focus)
+                  div(ng-messages="postsearch.search.$error",ng-if="postsearch.search.$dirty")
+                    div(ng-message="required") campo requerido
+                    div(ng-message="md-maxlength") 10 caraters é max
+                    div(ng-message="md-minlength") 5 caraters é min
+                div(layout="row",layout-align="end end")    
+                  md-button(class="md-primary md-raised",ng-disabled="postsearch.$invalid" , ng-click="close(searchTerm)")
+                    | Buscar

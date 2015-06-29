@@ -1,0 +1,14 @@
+<md-toast ng-controller="ToastCtrl">
+  <div ng-if="!err">
+     <img ng-src="{{user.img}}"
+          alt="{{user.name}}"
+          style="width: 20px; height: 20px;">
+    <span flex> Ola {{user.nivel}} {{user.name}} bem vindo </span>
+    <md-button ng-click="closeToast()">
+      fechar!
+    </md-button>
+  </div>
+  <div ng-if="err" style="color:red;" >
+    <span>{{err.toUpperCase()}}</span>
+  </div>  
+</md-toast>

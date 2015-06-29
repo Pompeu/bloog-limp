@@ -3,20 +3,26 @@ extends layout
 block content
 	md-card
 		h1.md-toolbar-tools
-			| Blog Posts
+			| Criar Bloog Posts
 		md-content.layout-padding.md-whiteframe-z5.md-padding
 			form(name="postForm")
 				div(layout="column")
 					md-input-container
 						label Title
-						input(md-maxlength="30", required, name="title", ng-model="post.title")
+						input(md-maxlength="30", required, name="title", ng-model="post.titulo")
 						div(ng-messages="postForm.title.$error")
 							div(ng-message="required") This is required.
 							div(ng-message="md-maxlength") The name has to be less than 30 characters long.
 					md-input-container
 						label Body
-						textarea(md-maxlength="800", required, name="body",columns="10" ,ng-model="post.body")
+						textarea(md-maxlength="1200", required, name="body",columns="10" ,ng-model="post.body")
 						div(ng-messages="postForm.body.$error")
+							div(ng-message="required") This is required.
+							div(ng-message="md-maxlength") The name has to be less than 800 characters long.
+					md-input-container
+						label resumo
+						textarea(md-maxlength="30", required, name="resumo",columns="10" ,ng-model="post.resumo")
+						div(ng-messages="postForm.resumo.$error")
 							div(ng-message="required") This is required.
 							div(ng-message="md-maxlength") The name has to be less than 800 characters long.
 					md-input-container
